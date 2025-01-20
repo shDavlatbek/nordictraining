@@ -10,6 +10,8 @@ services:
     ports:
       - "3321:3321"
     restart: always
+    env_file:
+      - .env
 
 volumes:
   web:
