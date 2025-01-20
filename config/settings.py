@@ -26,8 +26,8 @@ SECRET_KEY = settings.SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = settings.DEBUG
 
-ALLOWED_HOSTS = settings.ALLOWED_HOSTS
-CSRF_TRUSTED_ORIGINS = settings.CSRF_TRUSTED_ORIGINS
+ALLOWED_HOSTS = settings.ALLOWEDHOSTS
+CSRF_TRUSTED_ORIGINS = settings.CSRFTRUSTEDORIGINS
 
 # Application definition
 
