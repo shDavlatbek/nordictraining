@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="body">
+  {% include "components/header.html" %}
+  <div id="s123PjaxMainContainer">
+    <div id="s123ModulesContainer" class="s123-modules-container">
+      {% block content %}
+        
+      {% endblock content %}
+    </div>
+    <!-- Render Multi Currency Settings Field -->
+  </div>
+</div>
+{% include "components/header-phone.html" %}
+{% endblock %}
