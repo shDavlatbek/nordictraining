@@ -5425,20 +5425,20 @@ function CustomFormModuleInitialize() {
                       }
                       $.ajax({
                           type: "POST",
-                          url: "/versions/" + $('#versionNUM').val() + "/include/customFormO.php",
+                          url: "/contact/",
                           data: new FormData($form.get(0)),
                           cache: false,
                           contentType: false,
                           processData: false,
                           success: function(data) {
-                              var dataObj = jQuery.parseJSON(data);
+                              var dataObj = jQuery.parseJSON('{}');
                               var thankYouMessage = translations.ThankYouAfterSubmmit;
                               if ($form.data('thanks-msg')) {
                                   thankYouMessage = $form.data('thanks-msg');
                               }
                               $form.trigger("reset");
                               if (clickAction == 'thankYouMessage' || clickAction == '') {
-                                  message = '<span>' + thankYouMessage + '<iframe src="/versions/' + $('#versionNUM').val() + '/include/customFormSentO.php?w=' + $('#w').val() + '&websiteID=' + dataObj.websiteID + '&moduleID=' + dataObj.moduleID + '" style="width:100%;height:30px;" frameborder="0"></iframe></span>';
+                                  message = '<span>' + thankYouMessage + '</span>';
                                   var $sentMessage = $(message);
                                   $sendingDialog.find('.modal-title').html(translations.sent);
                                   $sendingDialog.find('.bootbox-body').append($sentMessage.hide());
@@ -5788,7 +5788,7 @@ function HeadersModuleInitialize_Layout30() {
                       }
                       $form.find('button:submit').prop('disabled', true);
                       S123.ButtonLoading.start($form.find('button:submit'));
-                      var url = "/versions/" + $('#versionNUM').val() + "/include/contactO.php";
+                      var url = "/contact/";
                       if ($form.hasClass('custom-form') || $form.hasClass('horizontal-custom-form')) {
                           if (!CustomForm_IsLastStep($form)) {
                               $form.find('.next-form-btn:visible').trigger('click');
@@ -5802,7 +5802,7 @@ function HeadersModuleInitialize_Layout30() {
                               $form.find('button:submit').prop('disabled', false);
                               return false;
                           }
-                          url = "/versions/" + $('#versionNUM').val() + "/include/customFormO.php";
+                          url = "/contact/";
                       }
                       if (forms_GoogleRecaptcha.isActive && !forms_GoogleRecaptcha.isGotToken) {
                           forms_GoogleRecaptcha.getToken();
@@ -5813,12 +5813,12 @@ function HeadersModuleInitialize_Layout30() {
                           url: url,
                           data: $form.serialize(),
                           success: function(data) {
-                              var dataObj = jQuery.parseJSON(data);
+                              var dataObj = jQuery.parseJSON('{}');
                               $form.trigger("reset");
                               if (clickAction == 'thankYouMessage' || clickAction == '') {
                                   bootbox.alert({
                                       title: translations.sent,
-                                      message: thankYouMessage + '<iframe src="/versions/' + $('#versionNUM').val() + '/include/contactSentO.php?w=' + $('#w').val() + '&websiteID=' + dataObj.websiteID + '&moduleID=' + dataObj.moduleID + '" style="width:100%;height:30px;" frameborder="0"></iframe>',
+                                      message: thankYouMessage,
                                       className: 'contactUsConfirm',
                                       buttons: {
                                           ok: {

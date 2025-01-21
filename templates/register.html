@@ -1,1 +1,87 @@
-{% extends "under-development.html" %}
+{% extends "layouts/main.html" %}
+
+{% block html_class %}inside_page inside_page_header_design{% endblock %}
+
+{% block content %}
+<section id="section-64e4d2d619859" class="s123-module s123-module-custom-form-builder layout-5 bg-primary"
+  data-module-id="64e4d2d619859" data-module-type-num="79">
+  <div class="container-fluid page_header_style noBackground">
+    <div class="row">
+      <div class="container moduleTitleContainer">
+        <div class="row modulesTitle text-center">
+          <div class="col-xs-12">
+            <div class="page-header-wrap">
+              <H1 id="section-64e4d2d619859-title" class="s123-page-header  ">Ro'yxatdan o'tish</H1>
+              <hr class="small">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container preview-highlighter">
+    <div class="row text-center">
+      <div class="col-xs-12">
+        <div class="custom-form-description-box responsive-handler fr-view breakable"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-offset-3 col-sm-6 col-xs-12">
+        <form class="customForm  breakable s123-custom-form-multi-steps" data-click-action="thankYouMessage"
+          enctype="multipart/form-data"
+          data-thanks-msg="So'rovingiz muvaffaqiyatli yuborildi. Siz bilan bog'lanishimizni kuting."
+          data-date-format="m/d/Y">
+          {% csrf_token %}
+          <div class="custom-form-steps" data-total-steps="1">
+            <div class="custom-form-step step-1" data-step="1">
+              <div class="row">
+                <div class="col-xs-12 c-f-field-type" data-field-type="text">
+                  <div class="form-group"><label for="full_name">F.I.Sh</label><span>*</span><input type="text"
+                      name="full_name" placeholder="F.I.Sh" class="form-control" required
+                      data-msg-required="Это поле является обязательным."></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 c-f-field-type" data-field-type="select">
+                  <div class="form-group"><label for="sex">Jins</label><span>*</span><select
+                      name="sex" class="form-control">
+                      <option class="c-f-field-title" disabled selected>Jins</option>
+                      <option value="male">Erkak</option>
+                      <option value="female">Ayol</option>
+                    </select></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 c-f-field-type" data-field-type="number">
+                  <div class="form-group"><label for="age">Yoshingiz</label><span>*</span><input
+                      type="number" name="age" class="form-control" placeholder="Yoshingiz" min="18"
+                      max="60" required data-msg-required="Это поле является обязательным."></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 c-f-field-type" data-field-type="number">
+                  <div class="form-group"><label for="phone_number">Telefon
+                      raqam</label><span>*</span><input type="number" name="phone_number" class="form-control"
+                      placeholder="Telefon raqam" required data-msg-required="Это поле является обязательным."></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 c-f-field-type" data-field-type="email">
+                  <div class="form-group"><label for="email">Email
+                      pochta</label><span>*</span><input type="email" name="email"
+                      placeholder="Email pochta" class="form-control" required
+                      data-msg-required="Это поле является обязательным."></div>
+                </div>
+              </div>
+            </div><button type="submit" class="btn btn-primary btn-block submit-single-step-btn"
+              aria-label="Yuborish">Yuborish</button>
+          </div>
+          <input type="hidden" name="page" value="register">
+          <input type="hidden" name="w" value=""><input type="hidden" name="websiteID" value="8437729"><input
+            type="hidden" name="moduleID" value="64e4d2d619859"><input type="hidden" name="recaptchaToken" value="">
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

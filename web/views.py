@@ -32,7 +32,7 @@ class AboutView(TemplateView):
     template_name = 'about.html'
 
 class AboutUniversityView(TemplateView):
-    template_name = 'about-university.html'
+    template_name = os.path.join('university', 'index.html')
 
 class StaffView(TemplateView):
     template_name = 'staff.html'

@@ -1,6 +1,8 @@
 {% extends "layouts/main.html" %}
 {% load static %}
 
+{% block html_class %}home_page home_page_design{% endblock %}
+
 {% block content %}
 <section
   id="section-169"
@@ -49,7 +51,7 @@
                 <div class="s123-c-t-a" data-type="buttons" data-buttons-amount="1">
                   <div id="169-cta" data-aos="fade-up" class="redirect-buttons-container">
                     <a
-                      href="#section-5b44b23334c19"
+                      href="{% url 'register' %}"
                       class="s123-action-btn btn btn-primary btn-primary-white btn-xl 3d preview-highlighter"
                       data-open-tool="callToActionBox"
                       data-button-num="0"

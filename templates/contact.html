@@ -1,1 +1,120 @@
-{% extends "under-development.html" %}
+{% extends "layouts/main.html" %}
+{% block html_class %}inside_page inside_page_header_design{% endblock %}
+{% block content %}
+<section id="section-5b44b23334c19" class="s123-module s123-module-contact layout-8" data-module-id="5b44b23334c19"
+  data-module-type-num="7">
+  <div data-aos="fade-up" class="container-fluid page_header_style noBackground">
+    <div class="row">
+      <div class="container moduleTitleContainer">
+        <div class="row modulesTitle text-center">
+          <div class="col-xs-12">
+            <div class="page-header-wrap">
+              <h2 id="section-5b44b23334c19-title" class="s123-page-header">KONTAKTLARIMIZ</h2>
+              <hr class="small" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" data-aos="fade-up">
+    <form id="contactForm" class="breakable contactUsForm horizontal-custom-form s123-custom-form-multi-steps"
+      data-thanks-msg="So'rovingiz muvaffaqiyatli yuborildi. Siz bilan bog'lanishimizni kuting."
+      data-date-format="m/d/Y" data-click-action="thankYouMessage" method="post">
+      {% csrf_token %}
+      <div class="preview-highlighter">
+        <div class="text-left">
+          <div class="custom-form-steps" data-total-steps="1">
+            <div class="custom-form-step step-1" data-step="1">
+              <div class="row">
+                <div class="col-xs-12 col-md-3 c-f-field-type" data-field-type="text">
+                  <div class="form-group">
+                    <!-- <label for="full_name">F.I.Sh</label><span>*</span> -->
+                    <input type="text" name="full_name" placeholder="F.I.Sh" class="form-control" required
+                      data-msg-required="Это поле является обязательным." />
+                  </div>
+                </div>
+                <div class="col-xs-12 col-md-3 c-f-field-type" data-field-type="text">
+                  <div class="form-group">
+                    <!-- <label for="phone_number">Telefon raqamingiz</label><span>*</span> -->
+                    <input type="text" name="phone_number" placeholder="Telefon raqamingiz" class="form-control"
+                      required data-msg-required="Это поле является обязательным." />
+                  </div>
+                </div>
+                <div class="col-xs-12 col-md-3 c-f-field-type" data-field-type="email">
+                  <div class="form-group">
+                    <!-- <label for="email">Email pochtangiz</label><span>*</span> -->
+                    <input type="email" name="email" placeholder="Email pochtangiz" class="form-control" required
+                      data-msg-required="Это поле является обязательным." />
+                  </div>
+                </div>
+                <input type="hidden" name="page" value="index">
+                <input type="hidden" name="w" value="" /><input type="hidden" name="websiteID" value="8437729" /><input
+                  type="hidden" name="moduleID" value="5b44b23334c19" /><input type="hidden" name="recaptchaToken"
+                  value="" /><input type="hidden" name="horizontalForm" />
+                <div class="col-xs-12 col-md-3"><button type="submit"
+                    class="btn btn-primary btn-block submit-single-step-btn">Biz bilan bog'laning</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="s123-module-contact-map">
+      <div class="map-box">
+        <div class="contact-info box box-primary box-text-primary">
+          <div class="preview-highlighter">
+            <div class="text-left">
+              <ul class="list-unstyled contact-as-details-container">
+                <li>41.287418777020086, 69.21900231775557</li>
+              </ul>
+              <ul class="list-unstyled contact-as-details-container">
+                <li>
+                  <a href="tel:+998-909611415"><i class="svg-m s123-icon-converter" data-icon-name="phone"
+                      style="mask: url('https://images.cdn-files-a.com/ready_uploads/svg/phone.svg?v=2'); -webkit-mask: url('https://images.cdn-files-a.com/ready_uploads/svg/phone.svg?v=2')"
+                      data-ie11-classes="" alt="fa fa-phone">&nbsp;</i><span
+                      dir="ltr">+998-909611415</span>&nbsp;-&nbsp;<span>Odil Almurotovich</span></a>
+                </li>
+                <li>
+                  <a href="mailto:odilkuysinov1979@gmail.com"><i class="svg-m s123-icon-converter fa-fw"
+                      data-icon-name="envelope-o"
+                      style="mask: url('https://images.cdn-files-a.com/ready_uploads/svg/envelope-o.svg?v=2'); -webkit-mask: url('https://images.cdn-files-a.com/ready_uploads/svg/envelope-o.svg?v=2')"
+                      data-ie11-classes=" fa-fw" alt="envelope-o">&nbsp;</i>odilkuysinov1979@gmail.com</a>
+                </li>
+                <li class="open_hours_field">
+                  <i class="svg-m s123-icon-converter fa-fw" data-icon-name="clock-o"
+                    style="mask: url('https://images.cdn-files-a.com/ready_uploads/svg/clock-o.svg?v=2'); -webkit-mask: url('https://images.cdn-files-a.com/ready_uploads/svg/clock-o.svg?v=2')"
+                    data-ie11-classes="fa-fw" alt="clock-o">&nbsp;</i>Dushanbadan Jumagacha <br />
+                  Soat 9:00 dan 18:00 gacha
+                </li>
+              </ul>
+              <br />
+              <ul class="list-inline social-details-container">
+                <li>
+                  <a href="https://www.facebook.com/odil.kuysinov" target="_blank"><i
+                      class="svg-m s123-icon-converter fa-2x fa-fw" data-icon-name="facebook"
+                      style="mask: url('https://images.cdn-files-a.com/ready_uploads/svg/facebook.svg?v=2'); -webkit-mask: url('https://images.cdn-files-a.com/ready_uploads/svg/facebook.svg?v=2')"
+                      data-ie11-classes=" fa-2x fa-fw" alt="facebook system-svg-icons ">&nbsp;</i></a>
+                </li>
+                <li>
+                  <a href="https://t.me/nordictraining" target="_blank"><i class="svg-m s123-icon-converter fa-2x fa-fw"
+                      data-icon-name="telegram5f22835bb828a" style="
+                        mask: url('https://images.cdn-files-a.com/ready_uploads/svg/telegram5f22835bb828a.svg?v=2');
+                        -webkit-mask: url('https://images.cdn-files-a.com/ready_uploads/svg/telegram5f22835bb828a.svg?v=2');
+                      " data-ie11-classes=" fa-2x fa-fw"
+                      alt="site123-image-icon system-svg-icons  telegram5f22835bb828a">&nbsp;</i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="s123-module-contact-map">
+          <div id="contact_678a295b17bcb" class="map-container"
+            data-src="https://maps-cdn.site123.com/include/globalMapDisplay.php?q=41.287418777020086, 69.21900231775557&z=15&l=ru&mapRTL=0&ilfc=1">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
