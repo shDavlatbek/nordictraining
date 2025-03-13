@@ -3745,7 +3745,7 @@ function PromoModuleInitialize() {
             var $form = $(form);
             $form.find("button:submit").prop("disabled", true);
             S123.ButtonLoading.start($form.find("button:submit"));
-            var url = "/versions/" + $("#versionNUM").val() + "/include/contactO.php";
+            var url = "/contact/";
             if ($form.hasClass("custom-form")) {
               if (!CustomForm_IsLastStep($form)) {
                 $form.find(".next-form-btn:visible").trigger("click");
@@ -3759,7 +3759,7 @@ function PromoModuleInitialize() {
                 $form.find("button:submit").prop("disabled", false);
                 return false;
               }
-              url = "/versions/" + $("#versionNUM").val() + "/include/customFormO.php";
+              url = "/contact/";
             }
             if (forms_GoogleRecaptcha.isActive && !forms_GoogleRecaptcha.isGotToken) {
               forms_GoogleRecaptcha.getToken();
@@ -3770,22 +3770,12 @@ function PromoModuleInitialize() {
               url: url,
               data: $form.serialize(),
               success: function (data) {
-                var dataObj = jQuery.parseJSON(data);
+                var dataObj = jQuery.parseJSON('{}');
                 $form.trigger("reset");
                 if (clickAction == "thankYouMessage" || clickAction == "") {
                   bootbox.alert({
                     title: translations.sent,
-                    message:
-                      translations.ThankYouAfterSubmmit +
-                      '<iframe src="/versions/' +
-                      $("#versionNUM").val() +
-                      "/include/contactSentO.php?w=" +
-                      $("#w").val() +
-                      "&websiteID=" +
-                      dataObj.websiteID +
-                      "&moduleID=" +
-                      dataObj.moduleID +
-                      '" style="width:100%;height:30px;" frameborder="0"></iframe>',
+                    message: translations.ThankYouAfterSubmmit,
                     className: "contactUsConfirm",
                     buttons: { ok: { label: translations.Ok } },
                     backdrop: true,

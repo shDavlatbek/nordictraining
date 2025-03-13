@@ -2,9 +2,10 @@ from django.urls import path, include, re_path
 from .views import HomeView, ContactView, \
 NewsView, AboutView, AboutUniversityView, StaffView, \
 PartnersView, RegisterView, TeacherTrainingView, ProgramDetailsView, \
-NewsDetailView, NotFoundView
+NewsDetailView, NotFoundView, upload_image
 
 urlpatterns = [
+  path('upload-image/', upload_image, name='upload_image'),
   path('', HomeView.as_view(), name='home'),
   path('contact/', ContactView.as_view(), name='contact'),
   path('about/', AboutView.as_view(), name='about'),
@@ -17,6 +18,5 @@ urlpatterns = [
   path('news/', NewsView.as_view(), name='news'),
   path('news/<slug:slug>/', NewsDetailView.as_view(), name='news-detail'),
   # path('hotel/<', HotelView.as_view(), name='hotel'),
-  re_path(r'^.*$', NotFoundView.as_view(), name='not-found'),
 ]
 

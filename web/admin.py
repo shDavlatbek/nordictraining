@@ -84,5 +84,18 @@ class ContactAdmin(admin.ModelAdmin):
             'all': ('assets/css/admin.css',)
         }
 
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ('image_tag', 'title', 'created_at', 'updated_at')
+    list_filter = ('created_at', 'updated_at')
+    list_display_links = ('image_tag', 'title')
+    search_fields = ('title',)
+    prepopulated_fields = {'slug': ('title',)}
+    
+    def image_tag(self, obj):
+        return format_html('<img src="{}" width="50" height="50" />', obj.image.url)
+    
+    image_tag.short_description = 'Rasmlar'
+    image_tag.allow_tags = True
+
 admin.site.register(Contact, ContactAdmin)
-admin.site.register(News)
+admin.site.register(News, NewsAdmin)

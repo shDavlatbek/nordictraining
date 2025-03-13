@@ -1,1 +1,54 @@
-{% extends "under-development.html" %}
+{% extends "layouts/main.html" %}
+{% load static %}
+{% block html_class %}inside_page inside_page_header_design{% endblock %}
+
+{% block content %}
+
+<section id="section-6587ba15e18a0" class="s123-module s123-module-articles layout-16 bg-primary"
+    data-module-id="6587ba15e18a0" data-module-type-num="17">
+    <div class="container-fluid page_header_style noBackground">
+        <div class="row">
+            <div class="container moduleTitleContainer">
+                <div class="row modulesTitle text-center">
+                    <div class="col-xs-12">
+                        <div class="page-header-wrap">
+                            <h1 id="section-6587ba15e18a0-title" class="s123-page-header">YANGILIKLAR</h1>
+                            <hr class="small">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container all-items aos-init aos-animate" data-aos="fade-up">
+        <div class="row">
+            {% for one in news %}
+            <div class="article-m-container col-sm-6 col-xs-12  preview-highlighter" data-unique-id="65e823ac10977">
+                <div class="article-m-image"><a
+                        href="{% url 'news-detail' slug=one.slug %}"
+                        class="s123-fast-page-load"><img class="lazyload entered loaded"
+                            data-src="{{ one.image.url }}"
+                            alt="{{ one.title }}"
+                            data-ll-status="loaded"
+                            src="{{ one.image.url }}"></a></div>
+                <div class="article-m-details">
+                    <div class="article-m-title">
+                        <h3><a href="{% url 'news-detail' slug=one.slug %}"
+                                class="s123-fast-page-load"
+                                aria-label="{{ one.title }}">{{ one.title }}</a></h3>
+                    </div>
+                    <div class="article-bottom"></div>
+                    <p class="breakable"></p><a
+                        href="{% url 'news-detail' slug=one.slug %}"
+                        class="more-link s123-fast-page-load" aria-label="Batafsil">Batafsil <i
+                            class="svg-m s123-icon-converter " data-icon-name="angle-right"
+                            style=" mask: url('https://images.cdn-files-a.com/ready_uploads/svg/angle-right.svg?v=2'); -webkit-mask: url('https://images.cdn-files-a.com/ready_uploads/svg/angle-right.svg?v=2');"
+                            data-ie11-classes="" alt="angle-right">&nbsp;</i></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

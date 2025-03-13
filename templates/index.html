@@ -75,8 +75,8 @@
             <div class="item active">
               <div class="headers-item">
                 <div class="video-bg">
-                  <video class="headers-bg-video" autoplay loop muted playsinline poster="/uploads/8437729/2000_64e09544d5c26-thumbnail.jpg">
-                    <source type="video/mp4" src="https://static.s123-cdn-static-d.com/uploads/8437729/normal_64e09544d5c26.mp4" />
+                  <video class="headers-bg-video" autoplay loop muted playsinline poster="{% static 'static.s123-cdn-static-c.com/uploads/8437729/2000_64e09544d5c26-thumbnail.jpg' %}">
+                    <source type="video/mp4" src="{% static 'static.s123-cdn-static-c.com/uploads/8437729/normal_64e09544d5c26.mp4' %}" />
                   </video>
                 </div>
               </div>
@@ -84,8 +84,8 @@
             <div class="item">
               <div class="headers-item">
                 <div class="video-bg">
-                  <video class="headers-bg-video" autoplay loop muted playsinline poster="/uploads/8437729/2000_64e095ac32054-thumbnail.jpg">
-                    <source type="video/mp4" src="https://static.s123-cdn-static-d.com/uploads/8437729/normal_64e095ac32054.mp4" />
+                  <video class="headers-bg-video" autoplay loop muted playsinline poster="{% static 'static.s123-cdn-static-c.com/uploads/8437729/2000_64e095ac32054-thumbnail.jpg' %}">
+                    <source type="video/mp4" src="{% static 'static.s123-cdn-static-c.com/uploads/8437729/normal_64e095ac32054.mp4' %}" />
                   </video>
                 </div>
               </div>
@@ -93,8 +93,8 @@
             <div class="item">
               <div class="headers-item">
                 <div class="video-bg">
-                  <video class="headers-bg-video" autoplay loop muted playsinline poster="/uploads/8437729/2000_64e097fe1e5ac-thumbnail.jpg">
-                    <source type="video/mp4" src="https://static.s123-cdn-static-d.com/uploads/8437729/normal_64e097fe1e5ac.mp4" />
+                  <video class="headers-bg-video" autoplay loop muted playsinline poster="{% static 'static.s123-cdn-static-c.com/uploads/8437729/2000_64e097fe1e5ac-thumbnail.jpg' %}">
+                    <source type="video/mp4" src="{% static 'static.s123-cdn-static-c.com/uploads/8437729/normal_64e097fe1e5ac.mp4' %}" />
                   </video>
                 </div>
               </div>
@@ -158,8 +158,8 @@
             <!-- Carousel Slides / Quotes -->
             <div class="item active one-item">
               <div class="headers-item">
-                <video class="headers-video-handler headers-image" autoplay loop muted playsinline poster="/uploads/8437729/2000_64e09fee00f79-thumbnail.jpg">
-                  <source type="video/mp4" src="https://static.s123-cdn-static-d.com/uploads/8437729/normal_64e09fee00f79.mp4" />
+                <video class="headers-video-handler headers-image" autoplay loop muted playsinline poster="{% static 'static.s123-cdn-static-c.com/uploads/8437729/2000_64e09fee00f79-thumbnail.jpg' %}">
+                  <source type="video/mp4" src="{% static 'static.s123-cdn-static-c.com/uploads/8437729/normal_64e09fee00f79.mp4' %}" />
                 </video>
               </div>
             </div>
@@ -223,8 +223,8 @@
             <!-- Carousel Slides / Quotes -->
             <div class="item active one-item">
               <div class="headers-item">
-                <video class="headers-video-handler headers-image" autoplay loop muted playsinline poster="/uploads/8437729/2000_6587c54af2b8a-thumbnail.jpg">
-                  <source type="video/mp4" src="https://static.s123-cdn-static-d.com/uploads/8437729/normal_6587c54af2b8a.mp4" />
+                <video class="headers-video-handler headers-image" autoplay loop muted playsinline poster="{% static 'static.s123-cdn-static-c.com/uploads/8437729/2000_6587c54af2b8a-thumbnail.jpg' %}">
+                  <source type="video/mp4" src="{% static 'static.s123-cdn-static-c.com/uploads/8437729/normal_6587c54af2b8a.mp4' %}" />
                 </video>
               </div>
             </div>
@@ -279,8 +279,8 @@
               <!-- Carousel Slides / Quotes -->
               <div class="item active one-item">
                 <div class="headers-item">
-                  <video class="headers-video-handler headers-image" autoplay loop muted playsinline poster="/uploads/8437729/800_64e0ca392b7a2-thumbnail.jpg">
-                    <source type="video/mp4" src="https://static.s123-cdn-static-d.com/uploads/8437729/normal_64e0ca392b7a2.mp4" />
+                  <video class="headers-video-handler headers-image" autoplay loop muted playsinline poster="{% static 'static.s123-cdn-static-c.com/uploads/8437729/800_64e0ca392b7a2-thumbnail.jpg' %}">
+                    <source type="video/mp4" src="{% static 'static.s123-cdn-static-c.com/uploads/8437729/normal_64e0ca392b7a2.mp4' %}" />
                   </video>
                 </div>
               </div>
@@ -337,29 +337,30 @@
   </div>
   <div class="container limit-items" data-aos="fade-up">
     <div class="row">
-      <div class="article-m-container col-sm-6 col-xs-12 leading-article preview-highlighter" data-unique-id="65e823ac10977">
+      {% for one in news %}
+      <div class="article-m-container col-sm-6 col-xs-12 {% if forloop.first %}leading-article{% endif %} preview-highlighter" data-unique-id="{{ one.id }}#{{ forloop.counter }}">
         <div class="article-m-image">
           <a
-            href="{% url 'news-detail' slug='podpisaniya-memoranduma-o-sotrudnichestve-v-oblasti-obrazovaniya-v-ramkah-obrazovatelnoy-integracii' %}"
+            href="{% url 'news-detail' slug=one.slug %}"
             class="s123-fast-page-load"
-            ><img class="lazyload" data-src="https://images.cdn-files-a.com/uploads/8437729/800_65e8225cd0b30.jpg" alt="Ta’lim integratsiyasi doirasidagi hamkorlik memorandumlari imzolandi"
+            ><img class="lazyload" data-src="{{ one.image.url }}" alt="{{ one.title }}"
           /></a>
         </div>
         <div class="article-m-details">
           <div class="article-m-title">
             <h3>
               <a
-                href="{% url 'news-detail' slug='podpisaniya-memoranduma-o-sotrudnichestve-v-oblasti-obrazovaniya-v-ramkah-obrazovatelnoy-integracii' %}"
+                href="{% url 'news-detail' slug=one.slug %}"
                 class="s123-fast-page-load"
-                aria-label="Ta’lim integratsiyasi doirasidagi hamkorlik memorandumlari imzolandi"
-                >Ta’lim integratsiyasi doirasidagi hamkorlik memorandumlari imzolandi</a
+                aria-label="{{ one.title }}"
+                >{{ one.title }}</a
               >
             </h3>
           </div>
           <div class="article-bottom"></div>
           <p class="breakable"></p>
           <a
-            href="{% url 'news-detail' slug='podpisaniya-memoranduma-o-sotrudnichestve-v-oblasti-obrazovaniya-v-ramkah-obrazovatelnoy-integracii' %}"
+            href="{% url 'news-detail' slug=one.slug %}"
             class="more-link s123-fast-page-load"
             aria-label="Batafsil"
             >Batafsil
@@ -374,7 +375,8 @@
           >
         </div>
       </div>
-      <div class="article-m-container col-sm-6 col-xs-12 preview-highlighter" data-unique-id="6587c33151b08">
+      {% endfor %}
+      {% comment %} <div class="article-m-container col-sm-6 col-xs-12 preview-highlighter" data-unique-id="6587c33151b08">
         <div class="article-m-image">
           <a
             href="{% url 'news-detail' slug='uzbekistan-and-sweden-are-developing-cooperative-programs-to-improve-teacher-training' %}"
@@ -487,7 +489,7 @@
             ></a
           >
         </div>
-      </div>
+      </div> {% endcomment %}
     </div>
     <div class="row">
       <div class="col-sm-12 text-center see-more-link"><a class="s123-fast-page-load" href="{% url 'news' %}">Yana</a></div>
@@ -541,7 +543,7 @@
               <div class="headers-item">
                 <div class="video-bg">
                   <video class="headers-bg-video" autoplay loop muted playsinline poster="/uploads/8437729/2000_pb-65ec1c83ef2c1-thumbnail.jpg">
-                    <source type="video/mp4" src="https://static.s123-cdn-static-d.com/uploads/8437729/normal_pb-65ec1c83ef2c1.mp4" />
+                    <source type="video/mp4" src="https://static.s123-cdn-static-c.com/uploads/8437729/normal_pb-65ec1c83ef2c1.mp4" />
                   </video>
                 </div>
               </div>
@@ -569,7 +571,7 @@
     <div class="row text-center">
       <div class="s123-categories">
         <ul class="filter" data-category-layouts="true">
-          <li data-filter="1-sayohat" data-unique-id="6587bf2965c95"><a href="#">1-sayohat</a></li>
+           <li data-filter="1-sayohat" data-unique-id="6587bf2965c95"><a href="#">1-sayohat</a></li>
           <li data-filter="2-sayohat" data-unique-id="6587c120bded2"><a href="#">2-sayohat</a></li>
           <li data-filter="3-sayohat" data-unique-id="65e8218a526e1"><a href="#">3-sayohat</a></li>
         </ul>
@@ -1442,7 +1444,7 @@
             <div class="isotope-gallery-container" data-isotope-transition="0">
               <div
                 class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gallery-item-wrapper mfp-image g-i"
-                data-mfp-src="https://static.s123-cdn-static-d.com/uploads/8437729/normal_6587c143e71e7.mp4"
+                data-mfp-src="https://static.s123-cdn-static-c.com/uploads/8437729/normal_6587c143e71e7.mp4"
                 title=""
                 data-type="video"
                 data-media-type="upload"
@@ -1457,7 +1459,7 @@
                   <div class="gallery-thumb">
                     <img class="lazyload" data-src="https://images.cdn-files-a.com/uploads/8437729/2000_6587c143e71e7-thumbnail.jpg" alt="" />
                     <div class="image-overlay"></div>
-                    <a href="https://static.s123-cdn-static-d.com/uploads/8437729/normal_6587c143e71e7.mp4" class="gallery-zoom" data-allow-external-link="true">
+                    <a href="https://static.s123-cdn-static-c.com/uploads/8437729/normal_6587c143e71e7.mp4" class="gallery-zoom" data-allow-external-link="true">
                       <div class="eye">
                         <i
                           class="svg-m s123-icon-converter"
@@ -2466,7 +2468,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> 
       <!-- Show More Buttons For Each Category --->
       <div class="gallery-show-more-container"></div>
     </div>

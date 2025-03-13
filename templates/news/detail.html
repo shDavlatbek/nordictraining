@@ -1,1 +1,96 @@
-{% extends "under-development.html" %}
+{% extends "layouts/main.html" %}
+{% load static %}
+{% block html_class %}inside_page inside_page_header_design{% endblock %}
+
+{% block content %}
+<section id="section-6587ba15e18a0"
+    class="s123-page-data s123-module s123-page-data-articles s123-page-data-articles-1a bg-primary dataPageBreadcrumbs">
+    <div class="breadcrumb-wrap noBackground">
+        <ol class="breadcrumb container">
+            <li><a class="homepageMenu s123-fast-page-load" href="{% url 'home' %}"><span
+                        class="txt-container">Bosh sahifa</span></a></li>
+            <li><a data-module-id="6587ba15e18a0" href="{% url 'news' %}">YANGILIKLAR</a></li>
+            <li class="active">{{ news.title }}</li>
+        </ol>
+    </div>
+    <div class="noBackground">
+        <div class="container-fluid page_header_style">
+            <div class="container">
+                <div class="row modulesTitle text-center">
+                    <div class="col-xs-12 page-header-wrap">
+                        <h1 id="section-6587ba15e18a0-title" class="s123-page-header ">{{ news.title }}</h1>
+                        <hr class="small">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="meta"> </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="leadImage text-center"> <img
+                        src="{{ news.image.url }}"
+                        alt="{{ news.title }}"> </div>
+                <div class="responsive-handler fr-view breakable">
+                    <div>
+                        <div class="s123-editor" style="margin-top: 30px;">
+                            {{ news.content|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-7 articleTags"> </div>
+                    <div class="col-xs-12 col-sm-12 blogShare">
+                        <div class="blog-data-share-buttons">
+                            <ul class="share-buttons square">
+                                <li><a class="btn-share"
+                                        href="https://www.facebook.com/sharer/sharer.php?u=https://nordictraining.uz/news/{{ news.slug }}/"
+                                        title="Share on Facebook" target="_blank"><i class="svg-m s123-icon-converter "
+                                            data-icon-name="facebook"
+                                            style=" mask: url('https://images.cdn-files-a.com/ready_uploads/svg/facebook.svg?v=2'); -webkit-mask: url('https://images.cdn-files-a.com/ready_uploads/svg/facebook.svg?v=2');"
+                                            data-ie11-classes="" alt="facebook">&nbsp;</i></a></li>
+                                <li><a class="btn-share"
+                                        href="https://x.com/intent/tweet?source=https://nordictraining.uz/news/{{ news.slug }}/"
+                                        title="Share on Twitter" target="_blank"><i class="svg-m s123-icon-converter "
+                                            style=" mask: url('https://images.cdn-files-a.com/ready_uploads/svg/twitter.svg?v=2'); -webkit-mask: url('https://images.cdn-files-a.com/ready_uploads/svg/twitter.svg?v=2');"
+                                            data-ie11-classes="" alt="twitter">&nbsp;</i></a></li>
+                                <li><a class="btn-share"
+                                        href="https://pinterest.com/pin/create/button/?url=https://nordictraining.uz/news/{{ news.slug }}/"
+                                        target="_blank" title="Pin it"><i class="svg-m s123-icon-converter "
+                                            
+                                            style=" mask: url('https://images.cdn-files-a.com/ready_uploads/svg/pinterest.svg?v=2'); -webkit-mask: url('https://images.cdn-files-a.com/ready_uploads/svg/pinterest.svg?v=2');"
+                                            data-ie11-classes="" alt="pinterest">&nbsp;</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix" style="margin-top:32px;"></div>
+        <div class="row related-article-container">
+            {% for one in news_all %}
+            <div class="col-xs-12 col-sm-4">
+                <div class="s123-card box-primary box-text-primary">
+                    <div class="image-container"> <a class="main-image s123-fast-page-load"
+                            href="{% url 'news-detail' slug=one.slug %}"
+                            style="background-image:url({{ one.image.url }}); background-position:center center;"></a>
+                    </div>
+                    <div class="details">
+                        <div class="title"> <a class="s123-fast-page-load"
+                                href="{% url 'news-detail' slug=one.slug %}"><span>{{ one.title }}</span></a> </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="clearfix" style="margin-top:32px;"></div>
+    </div>
+    <script type="text/javascript">        var customLabels = { "readMore": "Batafsil", "seeMore": "Yana", "commentResponseText": "Bu yerga javobingizni yozing...", "commentName": "To'liq Ismingiz", "commentEmail": "Email pochtangiz", "commentButtonText": "Izoh qoldirish", "commentMessage": "Email pochtangiz saytimizda aks etmaydi", "replyButtonText": "Javob berish" };
+    </script>
+</section>
+{% endblock %}
